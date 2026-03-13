@@ -1,0 +1,32 @@
+{
+  "name": "@highbeam/googlesheets-cli",
+  "author": "Brendan McNamara <brendan@highbeam.co>",
+  "version": "0.1.0",
+  "description": "Google Sheets CLI",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "bin": {
+    "gsheets": "bin/gsheets"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && tsc-alias && chmod +x dist/index.js",
+    "dev": "tsx src/index.ts",
+    "start": "tsx dist/index.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0",
+    "commander": "^14.0.3",
+    "googleapis": "^171.4.0"
+  }
+}

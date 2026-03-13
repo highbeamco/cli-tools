@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+.env.local
+credentials.json
+.npmrc
+
+# Build output
+dist
+build
+
+# Environment
+.env.local
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
