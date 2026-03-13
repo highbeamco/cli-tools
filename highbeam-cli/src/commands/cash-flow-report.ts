@@ -14,7 +14,7 @@ export async function cashFlowReportAction(opts: {
   const tokenStore = new AuthTokenStore(env.HIGHBEAM_STORAGE_PATH);
   const authService = new ServerTokenAuthService(env, tokenStore);
 
-  if (!authService.tryLoadFromFile()) {
+  if (!(await authService.tryLoadOrRefresh())) {
     console.log("Not authenticated. Please run `highbeam login` first.");
     authService.dispose();
     return;

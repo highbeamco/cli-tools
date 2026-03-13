@@ -13,7 +13,7 @@ export async function businessAddAction(opts: { default?: boolean }) {
   const tokenStore = new AuthTokenStore(env.HIGHBEAM_STORAGE_PATH);
   const authService = new ServerTokenAuthService(env, tokenStore);
 
-  if (!authService.tryLoadFromFile()) {
+  if (!(await authService.tryLoadOrRefresh())) {
     console.log("Not authenticated. Please run `highbeam login` first.");
     authService.dispose();
     return;
@@ -109,7 +109,7 @@ export async function businessListAction(opts: { added?: boolean }) {
   const tokenStore = new AuthTokenStore(env.HIGHBEAM_STORAGE_PATH);
   const authService = new ServerTokenAuthService(env, tokenStore);
 
-  if (!authService.tryLoadFromFile()) {
+  if (!(await authService.tryLoadOrRefresh())) {
     console.log("Not authenticated. Please run `highbeam login` first.");
     authService.dispose();
     return;
