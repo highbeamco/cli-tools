@@ -1,0 +1,39 @@
+{
+  "name": "@highbeam/cli",
+  "author": "Brendan McNamara <brendan@highbeam.co>",
+  "version": "0.1.0",
+  "description": "Highbeam CLI",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "bin": {
+    "highbeam": "bin/highbeam"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && tsc-alias && chmod +x dist/index.js",
+    "dev": "tsx src/index.ts",
+    "start": "tsx dist/index.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.10.1",
+    "tsx": "^4.21.0",
+    "commander": "^14.0.3",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "fuse.js": "^7.1.0",
+    "googleapis": "^171.4.0",
+    "ky": "^1.14.3",
+    "zod": "^4.3.6"
+  }
+}
